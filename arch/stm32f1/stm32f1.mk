@@ -48,7 +48,7 @@ ALL_SRCS     := $(BOARD_SRCS) \
 		$(PERIPH_SRCS)
 
 #crystal frequency
-CRYSTAL_FREQ = 12000000
+CRYSTAL_FREQ = 8000000
 
 # fetch this dir during include
 SELF_DIR   := $(dir $(lastword $(MAKEFILE_LIST)))

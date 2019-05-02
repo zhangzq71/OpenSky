@@ -103,7 +103,8 @@
      If you are using different crystal you have to adapt those functions accordingly.
     */
 
-#define SYSCLK_FREQ_24MHz  24000000
+// #define SYSCLK_FREQ_24MHz  24000000
+#define SYSCLK_FREQ_72MHz  72000000
 
 /*!< Uncomment the following line if you need to use external SRAM mounted
      on STM3210E-EVAL board (STM32 High density and XL-density devices) or on
@@ -138,7 +139,7 @@
 /*******************************************************************************
 *  Clock Definitions
 *******************************************************************************/
-uint32_t SystemCoreClock         = SYSCLK_FREQ_24MHz;        /*!< System Clock Frequency (Core Clock) */
+uint32_t SystemCoreClock         = SYSCLK_FREQ_72MHz;        /*!< System Clock Frequency (Core Clock) */
 
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
 /**
@@ -151,6 +152,7 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
 
 static void SetSysClock(void);
 static void SetSysClockTo24(void);
+static void SetSysClockTo72(void);
 
 /**
   * @}
@@ -370,7 +372,7 @@ void SystemCoreClockUpdate (void)
   */
 static void SetSysClock(void)
 {
-  SetSysClockTo24();
+  SetSysClockTo72();
 }
 
 /**
