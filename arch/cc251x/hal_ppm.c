@@ -20,7 +20,7 @@
 #include "hal_ppm.h"
 #include "ppm.h"
 
-#ifndef SBUS_ENABLED
+// #ifndef SBUS_ENABLED
 
 void hal_ppm_init(void) {
     // no int on overflow:
@@ -113,4 +113,4 @@ void hal_ppm_failsafe_enter(void) {
     #endif  // PPM_INVERTED
 }
 
-#endif  // SBUS_ENABLED
+// #endif  // SBUS_ENABLED

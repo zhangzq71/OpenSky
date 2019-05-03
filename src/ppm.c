@@ -23,7 +23,7 @@
 #include "wdt.h"
 #include "failsafe.h"
 
-#ifndef SBUS_ENABLED
+// #ifndef SBUS_ENABLED
 
 // ppm signal:
 // s  CH1  s  CH2  s ... s   FILL_UP_TO_20.0ms
@@ -132,5 +132,5 @@ void PPM_TIMER_ISR(void) {
     }
 }
 
-#endif  // SBUS_ENABLED
+// #endif  // SBUS_ENABLED
 

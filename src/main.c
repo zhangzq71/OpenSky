@@ -61,11 +61,11 @@ int main(void) {
     adc_init();
 
     // init output
-#ifdef SBUS_ENABLED
+// #ifdef SBUS_ENABLED
     sbus_init();
-#else  // SBUS_ENABLED
+// #else  // SBUS_ENABLED
     ppm_init();
-#endif  // SBUS_ENABLED
+// #endif  // SBUS_ENABLED
 
     // init failsafe
     failsafe_init();

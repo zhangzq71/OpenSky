@@ -23,16 +23,16 @@
 #include "main.h"
 #include "hal_ppm.h"
 
-#ifdef SBUS_ENABLED
+// #ifdef SBUS_ENABLED
 
-// ppm is not used then
-#define ppm_init() {}
-#define ppm_update(a) {}
-#define ppm_exit_failsafe() {}
-#define ppm_enter_failsafe() {}
+// // ppm is not used then
+// #define ppm_init() {}
+// #define ppm_update(a) {}
+// #define ppm_exit_failsafe() {}
+// #define ppm_enter_failsafe() {}
 
 
-#else
+// #else
 void ppm_init(void);
 void ppm_update(EXTERNAL_MEMORY uint16_t *data);
 void ppm_exit_failsafe(void);
@@ -52,6 +52,6 @@ extern EXTERNAL_MEMORY uint16_t ppm_data_ticks[9];
 #define PPM_SYNC_DURATION_US 300
 // #define PPM_SYNC_PULS_LEN_TICKS  PPM_US_TO_TICKCOUNT(PPM_SYNC_DURATION_US)
 
-#endif  // SBUS_ENABLED
+// #endif  // SBUS_ENABLED
 
 #endif  // PPM_H_

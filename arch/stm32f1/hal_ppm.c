@@ -18,6 +18,7 @@
 */
 
 #include "hal_ppm.h"
+#include "debug.h"
 #include "ppm.h"
 #include "wdt.h"
 #include "led.h"
@@ -26,7 +27,7 @@
 #include "stm32f10x_tim.h"
 #include "misc.h"  // stm32 nvic stuff
 
-#ifndef SBUS_ENABLED
+// #ifndef SBUS_ENABLED
 
 void hal_ppm_init(void) {
     hal_ppm_init_rcc();
@@ -165,4 +166,4 @@ static void hal_ppm_init_ocx(uint8_t ch, TIM_TypeDef *TIMx, TIM_OCInitTypeDef *t
     }
 }
 
-#endif  // SBUS_ENABLED
+// #endif  // SBUS_ENABLED
