@@ -83,16 +83,22 @@ static void hal_cc25xx_init_gpio(void) {
     gpio_init.GPIO_Pin  = CC25XX_GDO2_PIN;
     gpio_init.GPIO_Mode = GPIO_Mode_IN_FLOATING;
     GPIO_Init(CC25XX_GDO2_GPIO, &gpio_init);
+
+    CC25XX_ANT_SW_CTX_GPIO->BSRR = (CC25XX_ANT_SW_CTX_PIN);  // 1, CTX is connect to SE2431L.csd
 }
 
 inline uint32_t hal_cc25xx_set_antenna(uint8_t id) {
     // select antenna 0 or 1:
     if (id) {
-        CC25XX_ANT_SW_CTX_GPIO->BRR  = (CC25XX_ANT_SW_CTX_PIN);  // 0
-        CC25XX_ANT_SW_CRX_GPIO->BSRR = (CC25XX_ANT_SW_CRX_PIN);  // 1
+        // CC25XX_ANT_SW_CTX_GPIO->BRR  = (CC25XX_ANT_SW_CTX_PIN);  // 0
+
+        // CC25XX_ANT_SW_CRX_GPIO->BRR = (CC25XX_ANT_SW_CRX_PIN);  // 0
+        CC25XX_ANT_SW_CRX_GPIO->BSRR  = (CC25XX_ANT_SW_CRX_PIN);  // 1
     } else {
-        CC25XX_ANT_SW_CTX_GPIO->BSRR = (CC25XX_ANT_SW_CTX_PIN);  // 1
-        CC25XX_ANT_SW_CRX_GPIO->BRR  = (CC25XX_ANT_SW_CRX_PIN);  // 0
+        // CC25XX_ANT_SW_CTX_GPIO->BSRR = (CC25XX_ANT_SW_CTX_PIN);  // 1
+
+        CC25XX_ANT_SW_CRX_GPIO->BRR = (CC25XX_ANT_SW_CRX_PIN);  // 0
+        // CC25XX_ANT_SW_CRX_GPIO->BSRR  = (CC25XX_ANT_SW_CRX_PIN);  // 1
     }
     return id;
 }
