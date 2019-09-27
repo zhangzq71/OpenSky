@@ -2,10 +2,10 @@
 #define __PIN_CONFIG_H__
 #include "main.h"
 
-#define LED_GPIO                  GPIOA
-#define LED_GPIO_CLK              RCC_APB2Periph_GPIOA
+#define LED_GPIO                  GPIOB
+#define LED_GPIO_CLK              RCC_APB2Periph_GPIOB
 #define LED_GPIO_CLK_RCC          2
-#define LED_RED_PIN               GPIO_Pin_11
+#define LED_RED_PIN               GPIO_Pin_6
 #define LED_GREEN_PIN             GPIO_Pin_12
 
 // usually you want to have sbus inverted and hub telemetry inverted
@@ -86,17 +86,20 @@
 #define CC25XX_SPI_RX_DMA_CHANNEL   DMA1_Channel2
 #define CC25XX_SPI_RX_DMA_TC_FLAG   DMA1_FLAG_TC2
 
-#define CC25XX_ANT_SW_CTX_GPIO     GPIOC
-#define CC25XX_ANT_SW_CTX_GPIO_CLK RCC_APB2Periph_GPIOC
+#define CC25XX_ANT_SW_CTX_GPIO     GPIOB
+#define CC25XX_ANT_SW_CTX_GPIO_CLK RCC_APB2Periph_GPIOB
 #define CC25XX_ANT_SW_CTX_GPIO_CLK_RCC 2
-#define CC25XX_ANT_SW_CTX_PIN      GPIO_Pin_14
-
+#define CC25XX_ANT_SW_CTX_PIN      GPIO_Pin_7
 
 #define CC25XX_ANT_SW_CRX_GPIO     GPIOC
 #define CC25XX_ANT_SW_CRX_GPIO_CLK RCC_APB2Periph_GPIOC
 #define CC25XX_ANT_SW_CRX_GPIO_CLK_RCC 2
 #define CC25XX_ANT_SW_CRX_PIN      GPIO_Pin_13
 
+#define CC25XX_LNA_SW_BYPASS_GPIO GPIOB
+#define CC25XX_LNA_SW_BYPASS_GPIO_CLK RCC_APB2Periph_GPIOB
+#define CC25XX_LNA_SW_BYPASS_GPIO_CLK_RCC 2
+#define CC25XX_LNA_SW_BYPASS_PIN  GPIO_Pin_5
 
 #define CC25XX_LNA_SW_CTX_GPIO     GPIOA
 #define CC25XX_LNA_SW_CTX_GPIO_CLK RCC_APB2Periph_GPIOA
@@ -110,15 +113,15 @@
 #define CC25XX_LNA_SW_CRX_PIN      GPIO_Pin_4
 
 
-#define CC25XX_GDO2_GPIO           GPIOA
+#define CC25XX_GDO2_GPIO           GPIOB
 #define CC25XX_GDO2_PIN            GPIO_Pin_3
-#define CC25XX_GDO2_GPIO_CLK       RCC_APB2Periph_GPIOA
+#define CC25XX_GDO2_GPIO_CLK       RCC_APB2Periph_GPIOB
 #define CC25XX_GDO2_GPIO_CLK_RCC   2
 
 
-#define BIND_JUMPER_GPIO           GPIOA
+#define BIND_JUMPER_GPIO           GPIOB
 #define BIND_JUMPER_PIN            GPIO_Pin_8
-#define BIND_JUMPER_GPIO_CLK       RCC_APB2Periph_GPIOA
+#define BIND_JUMPER_GPIO_CLK       RCC_APB2Periph_GPIOB
 #define BIND_JUMPER_GPIO_CLK_RCC   2
 
 #define EEPROM_GPIO                GPIOB
