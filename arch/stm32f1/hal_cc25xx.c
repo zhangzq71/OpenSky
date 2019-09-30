@@ -85,6 +85,11 @@ static void hal_cc25xx_init_gpio(void) {
     GPIO_Init(CC25XX_GDO2_GPIO, &gpio_init);
 
     RCC_APBxPeriphClockCmd(CC25XX_LNA_SW_BYPASS_GPIO_CLK_RCC, CC25XX_LNA_SW_BYPASS_GPIO_CLK, ENABLE);
+    // CSD:
+    gpio_init.GPIO_Pin = CC25XX_LNA_SW_BYPASS_PIN;
+    gpio_init.GPIO_Speed = GPIO_Speed_50MHz;
+    gpio_init.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init(CC25XX_LNA_SW_BYPASS_GPIO, &gpio_init);
     CC25XX_LNA_SW_BYPASS_GPIO->BSRR = (CC25XX_LNA_SW_BYPASS_PIN);
 }
 
