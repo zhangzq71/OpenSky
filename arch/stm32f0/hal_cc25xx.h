@@ -100,6 +100,12 @@ uint8_t hal_cc25xx_transmission_completed(void);
 #define RFST_SFTX     0x3B
 #define RFST_SWORRST  0x3C
 #define RFST_SNOP     0x3D
+    // flush tx fifo
+    hal_cc25xx_strobe(RFST_SFTX);
+    // copy to fifo
+    hal_cc25xx_register_write_multi(CC25XX_FIFO, (uint8_t *)buffer, buffer[0]+1);
+    // and send!
+    hal_cc25xx_strobe(RFST_STX);
 
 // Status registers
 #define PARTNUM        0x30|BURST_FLAG
@@ -118,7 +124,13 @@ uint8_t hal_cc25xx_transmission_completed(void);
 #define RCCTRL0_STATUS 0x3D|BURST_FLAG
 
 // Status byte states
-#define STB_IDLE         0x00
+#define STB_IDLE         0x00    // flush tx fifo
+    hal_cc25xx_strobe(RFST_SFTX);
+    // copy to fifo
+    hal_cc25xx_register_write_multi(CC25XX_FIFO, (uint8_t *)buffer, buffer[0]+1);
+    // and send!
+    hal_cc25xx_strobe(RFST_STX);
+
 #define STB_RX           0x10
 #define STB_TX           0x20
 #define STB_FSTXON       0x30

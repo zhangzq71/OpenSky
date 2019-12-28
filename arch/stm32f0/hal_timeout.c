@@ -26,17 +26,17 @@ volatile static __IO uint32_t hal_timeout2_100us;
 volatile static __IO uint32_t hal_timeout_100us_delay;
 
 void hal_timeout_init(void) {
-    // configure 1ms sys tick:
-    if (SysTick_Config(SystemCoreClock / 10000)) {
-        debug("hal_timeout: failed to set systick timeout\n");
-    }
+    // // configure 1ms sys tick:
+    // if (SysTick_Config(SystemCoreClock / 10000)) {
+    //     debug("hal_timeout: failed to set systick timeout\n");
+    // }
 
-    // set prio
-    NVIC_SetPriority(SysTick_IRQn, NVIC_PRIO_SYSTICK);
+    // // set prio
+    // NVIC_SetPriority(SysTick_IRQn, NVIC_PRIO_SYSTICK);
 
-    hal_timeout_100us = 0;
-    hal_timeout2_100us = 0;
-    hal_timeout_100us_delay = 0;
+    // hal_timeout_100us = 0;
+    // hal_timeout2_100us = 0;
+    // hal_timeout_100us_delay = 0;
 }
 
 void hal_timeout_set_100us(__IO uint32_t hus) {
